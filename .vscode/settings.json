@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "dpg-dc3f04nlk1mc73eq18n0-a.singapore-postgres.render.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "PGrender",
+            "database": "atlasdb_wyf5",
+            "username": "atlasdb_wyf5_user"
+        }
+    ]
+}
