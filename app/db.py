@@ -5,7 +5,7 @@ from psycopg.rows import dict_row
 from app.config import settings
 
 @contextmanager
-def connection()
+def connection():
     # Render provides a PostgreSQL connection URL. Prefer its external URL
     # for a FastAPI process running on your computer.
     url = settings().database_url

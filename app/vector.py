@@ -8,7 +8,6 @@ from app.config import settings
 
 log = logging.getLogger(__name__)
 
-from pinecone import Pinecone
 
 @lru_cache(maxsize=1)
 def index():

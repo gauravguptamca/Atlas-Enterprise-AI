@@ -47,19 +47,12 @@ def process_s3_key(key):
         conn.execute("UPDATE documents SET status='processing' WHERE id=%s",(doc['id'],))
     try:
         obj=client('s3').get_object(Bucket=s.s3_bucket,Key=key)
-
         if obj['ContentLength']>s.max_upload_bytes: raise ValueError('Upload too large')
-
         blob=obj['Body'].read(s.max_upload_bytes+1)
-
         if len(blob)>s.max_upload_bytes: raise ValueError('Upload too large')
-
         if Path(key).suffix.lower()=='.pdf' and not blob.startswith(b'%PDF'): raise ValueError('Invalid PDF')
-       
         pages=parse(blob,Path(key).suffix.lower())
-       
         parts=[(page,part) for page,text in pages for part in chunks(text)]
-       
         if not parts: raise ValueError('No extractable text; scanned PDFs need Textract OCR')
         vectors=[]
         for i,(page,part) in enumerate(parts):

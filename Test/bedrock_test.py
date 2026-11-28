@@ -38,7 +38,7 @@ chat_response = client.converse(
         {
             "role": "user",
             "content": [
-                {"text": "Explain RAG in two sentence."}
+                {"text": "Explain RAG in one sentence."}
             ]
         }
     ],
